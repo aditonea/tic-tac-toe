@@ -1,0 +1,213 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <div class="splash-screen">
+        <h1>Tic Tac Toe</h1>
+        <button id="start">Start Game</button>
+    </div>
+    <div class="end-game display">
+        <div class="box">
+            <p class="result">Player X wins</p>
+            <button class="play-again">Play Again</button>
+        </div>
+    </div>
+    <div class="container">
+        <p class="turn">Player`s <span id="currentPlayer">X</span> turn</p>
+        <table>
+            <tbody>
+                <tr class="row-0">
+                    <td class="col-0"></td>
+                    <td class="col-1"></td>
+                    <td class="col-2"></td>
+                </tr>
+                <tr class="row-1">
+                    <td class="col-0"></td>
+                    <td class="col-1"></td>
+                    <td class="col-2"></td>
+                </tr>
+                <tr class="row-2">
+                    <td class="col-0"></td>
+                    <td class="col-1"></td>
+                    <td class="col-2"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3">
+                        <button id="reset">Reset</button>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <style>
+        body {
+            vertical-align: middle;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+            place-items: center;
+        }
+
+        .splash-screen {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: coral;
+            font-family: "Pacifico", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .splash-screen h1 {
+            color: white;
+            font-size: 5em;
+        }
+
+        .splash-screen button {
+            border: none;
+            font-family: "Nunito";
+            background-color: whitesmoke;
+            padding: 20px 30px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-size: 1em;
+            font-weight: 700;
+            color: rgb(173, 51, 7);
+            cursor: pointer;
+        }
+
+        .splash-screen button:hover {
+            transform: scale(1.1);
+        }
+
+        .end-game {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .8);
+            display: grid;
+            place-items: center;
+        }
+
+        .box {
+            width: 30%;
+            aspect-ratio: 1;
+            background-color: white;
+            color: black;
+            font-family: "Nunito", sans-serif;
+            font-weight: bold;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://i.pinimg.com/originals/e5/83/3e/e5833e1bea7d379f0f4e4ae250b7cf81.gif");
+            position: relative;
+        }
+
+        .box::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(rgba(255, 255, 255, 0.5), white);
+            border-radius: 20px;
+
+        }
+
+        .box p {
+            font-size: 38px;
+            z-index: 1;
+        }
+
+        .box button,
+        #reset {
+            border: none;
+            font-family: "Nunito";
+            font-weight: 700;
+            font-size: 20px;
+            padding: 20px 30px;
+            border-radius: 20px;
+            background-color: coral;
+            color: white;
+            z-index: 1;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .box button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 20px coral;
+        }
+
+        .turn {
+            font-family: "Nunito";
+            font-size: 2em;
+        }
+
+        .turn #currentPlayer {
+            font-weight: 700;
+            /* color: coral; */
+            display: inline-block;
+            background-color: coral;
+            border-radius: 10px;
+            padding: 5px 10px;
+            color: white;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        tr {
+            margin-bottom: 10px;
+        }
+
+        td {
+            margin-right: 10px;
+            background: #ccc;
+            height: 100px;
+            width: 100px;
+            font-family: "Nunito", sans-serif;
+            font-size: 70px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .taken {
+            background-color: rgb(97, 97, 97);
+            color: white;
+        }
+
+        .display {
+            display: none;
+        }
+    </style>
+
+    <script src="app.js"></script>
+    </script>
+</body>
+
+</html>
